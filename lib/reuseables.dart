@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/size_config.dart';
 
 Widget foodlist(String imagepPath, var containerColor, String foodName,
     int numberOfPacks, String price) {
   return Padding(
-    padding: EdgeInsets.only(left: 10, right: 10, top: 10),
+    padding: EdgeInsets.only(
+        left: getProportionateScreenWidth(10),
+        right: getProportionateScreenWidth(10),
+        top: getProportionateScreenHeight(10)),
     child: InkWell(
       onTap: () {},
       child: Row(
@@ -13,23 +17,24 @@ Widget foodlist(String imagepPath, var containerColor, String foodName,
             child: Row(
               children: [
                 Container(
-                  width: 64,
-                  height: 65,
+                  width: getProportionateScreenWidth(64),
+                  height: getProportionateScreenHeight(65),
                   decoration: BoxDecoration(
                       color: containerColor,
                       borderRadius: BorderRadius.circular(10)),
-                  margin: EdgeInsets.all(15),
+                  margin: EdgeInsets.only(
+                      right: getProportionateScreenWidth(15),
+                      left: getProportionateScreenWidth(15),
+                      top: getProportionateScreenHeight(15),
+                      bottom: getProportionateScreenHeight(15)),
                   padding: EdgeInsets.all(0),
                   child: Hero(
                     tag: imagepPath,
                     child: Image.asset(imagepPath),
-                    // fit: BoxFit.cover,
-                    // height: 75,
-                    // width: 75,
                   ),
                 ),
                 SizedBox(
-                  width: 10,
+                  width: getProportionateScreenWidth(10),
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,18 +42,18 @@ Widget foodlist(String imagepPath, var containerColor, String foodName,
                     Text(
                       foodName,
                       style: TextStyle(
-                          fontSize: 16,
+                          fontSize: getProportionateScreenWidth(16),
                           color: Colors.black,
                           letterSpacing: -1,
                           fontFamily: "Brandon Grotesque"),
                     ),
                     SizedBox(
-                      height: 5,
+                      height: getProportionateScreenHeight(5),
                     ),
                     Text(
                       "$numberOfPacks" "packs",
                       style: TextStyle(
-                          fontSize: 14,
+                          fontSize: getProportionateScreenWidth(14),
                           color: Colors.black,
                           letterSpacing: -1,
                           fontFamily: "Brandon Grotesque"),
@@ -64,7 +69,7 @@ Widget foodlist(String imagepPath, var containerColor, String foodName,
                 Image.asset("images/naira.png", color: Color(0XFF27214D)),
                 Text(price,
                     style: TextStyle(
-                        fontSize: 16,
+                        fontSize: getProportionateScreenWidth(16),
                         color: Color(0XFF27214D),
                         letterSpacing: -1,
                         fontFamily: "Brandon Grotesque")),
@@ -81,7 +86,7 @@ Text fruitHubText(String sentence, double textSize, Color textColor) {
   return Text(
     sentence,
     style: TextStyle(
-        fontSize: textSize,
+        fontSize: getProportionateScreenWidth(textSize),
         color: textColor,
         letterSpacing: -1,
         fontFamily: "Brandon Grotesque"),
@@ -91,13 +96,23 @@ Text fruitHubText(String sentence, double textSize, Color textColor) {
 Image fruitHubImage(
         {String? theImage,
         Color? imageColor,
-        double? imageheight,
-        double? imageWidth}) =>
+        required double imageheight,
+        required double imageWidth}) =>
     Image.asset(
       "images/$theImage.png",
       color: imageColor,
-      height: imageheight,
-      width: imageWidth,
+      height: getProportionateScreenHeight(imageheight),
+      width: getProportionateScreenWidth(imageWidth),
+    );
+
+Image fruitHubImage2(
+        {String? theImage,
+        Color? imageColor,
+        }) =>
+    Image.asset(
+      "images/$theImage.png",
+      color: imageColor,
+      
     );
 
 Widget foodDisplay(
@@ -109,66 +124,69 @@ Widget foodDisplay(
     clipBehavior: Clip.none,
     children: [
       Container(
-        margin: EdgeInsets.only(left: 15, top: 15, right: 7.5),
+        margin: EdgeInsets.only(
+            left: getProportionateScreenWidth(15),
+            top: getProportionateScreenHeight(15),
+            right: getProportionateScreenWidth(7.5)),
         decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.all(Radius.circular(15))),
-        width: 152,
-        height: 165,
+        width: getProportionateScreenWidth(152),
+        height: getProportionateScreenHeight(165),
       ),
       Positioned(
-        top: 25,
-        right: 15,
+        top: getProportionateScreenHeight(25),
+        right: getProportionateScreenWidth(15),
         child: Icon(
           Icons.favorite_border_outlined,
-          size: 20,
+          size: getProportionateScreenWidth(20),
           color: Color(0XFFFFA451),
         ),
       ),
       Positioned(
-        left: 50,
-        top: 35,
+        left: getProportionateScreenWidth(50),
+        top: getProportionateScreenHeight(35),
         child: Image.asset(
           containerImage,
         ),
       ),
       Positioned(
-        right: 35,
-        bottom: 45,
+        right: getProportionateScreenWidth(35),
+        bottom: getProportionateScreenHeight(45),
         child: Text(
           nameOfFood,
           style: TextStyle(
-              fontSize: 16,
+              fontSize: getProportionateScreenWidth(16),
               letterSpacing: -1,
               color: Color(0XFF27214D),
               fontFamily: "Brandon Grotesque"),
         ),
       ),
       Positioned(
-        bottom: 25,
-        left: 35,
+        bottom: getProportionateScreenHeight(25),
+        left: getProportionateScreenWidth(35),
         child: Image.asset(
           "images/smallnaira.png",
           color: Color(0XFFF08626),
-          width: 16,
-          height: 9,
+          width: getProportionateScreenWidth(16),
+          height: getProportionateScreenHeight(9),
         ),
       ),
       Positioned(
-        left: 50,
-        bottom: 20,
+        left: getProportionateScreenWidth(50),
+        bottom: getProportionateScreenHeight(20),
         child: Text(
           amount,
           style: TextStyle(
-              fontSize: 14,
+              fontSize: getProportionateScreenWidth(14),
               letterSpacing: -1,
               color: Color(0XFFF08626),
               fontFamily: "Brandon Grotesque"),
         ),
       ),
       Positioned(
-        right: 20,
-        bottom: 20,
+        right: getProportionateScreenWidth(20),
+        bottom: getProportionateScreenHeight(20),
         child: Container(
             child: Icon(Icons.add, color: Color(0XFFFFA451)),
             decoration: BoxDecoration(
@@ -190,66 +208,69 @@ Widget bottomFoodDisplay(
     clipBehavior: Clip.none,
     children: [
       Container(
-        margin: EdgeInsets.only(left: 15, top: 15, right: 7.5),
+        margin: EdgeInsets.only(
+            left: getProportionateScreenWidth(15),
+            top: getProportionateScreenHeight(15),
+            right: getProportionateScreenWidth(7.5)),
         decoration: BoxDecoration(
             color: containerColor,
             borderRadius: BorderRadius.all(Radius.circular(10))),
-        width: 120,
-        height: 130,
+        width: getProportionateScreenWidth(120),
+        height: getProportionateScreenHeight(130),
       ),
       Positioned(
-        top: 25,
-        right: 15,
+        top: getProportionateScreenHeight(25),
+        right: getProportionateScreenWidth(15),
         child: Icon(
           Icons.favorite_border_outlined,
-          size: 15,
+          size: getProportionateScreenWidth(15),
           color: Color(0XFFFFA451),
         ),
       ),
       Positioned(
-        left: imageLeftPosition,
-        top: imageTopPosition,
+        left: getProportionateScreenWidth(imageLeftPosition) ,
+        top: getProportionateScreenHeight(imageTopPosition) ,
         child: Image.asset(
           containerImage,
         ),
       ),
       Positioned(
-        right: 22,
-        bottom: 25,
+        right: getProportionateScreenWidth(22),
+        bottom: getProportionateScreenHeight(25),
         child: Text(
           nameOfFood,
           style: TextStyle(
-              fontSize: 16,
+              fontSize: getProportionateScreenWidth(16),
               letterSpacing: -1,
               color: Color(0XFF27214D),
               fontFamily: "Brandon Grotesque"),
         ),
       ),
       Positioned(
-        bottom: 10,
-        left: 35,
+        bottom: getProportionateScreenHeight(10),
+        left: getProportionateScreenWidth(35),
         child: Image.asset(
           "images/smallnaira.png",
           color: Color(0XFFF08626),
-          width: 16,
-          height: 9,
+          width: getProportionateScreenWidth(16),
+          height: getProportionateScreenHeight(9),
         ),
       ),
       Positioned(
-        left: 50,
-        bottom: 5,
+        left: getProportionateScreenWidth(50),
+        bottom: getProportionateScreenHeight(5),
         child: Text(
           amount,
           style: TextStyle(
-              fontSize: 14,
+              fontSize: getProportionateScreenWidth(14),
               letterSpacing: -1,
               color: Color(0XFFF08626),
               fontFamily: "Brandon Grotesque"),
         ),
       ),
       Positioned(
-        right: 20,
-        bottom: 3,
+        right: getProportionateScreenWidth(20),
+        bottom: getProportionateScreenHeight(3),
         child: Container(
             child: Icon(Icons.add, color: Color(0XFFFFA451)),
             decoration: BoxDecoration(
@@ -259,4 +280,3 @@ Widget bottomFoodDisplay(
     ],
   );
 }
-

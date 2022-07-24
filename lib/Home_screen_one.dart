@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/add_to_basket.dart';
 import 'package:fruit_hub/reuseables.dart';
+import 'package:fruit_hub/size_config.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0XFFE5E5E5),
@@ -14,20 +16,22 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 20,
+                height: getProportionateScreenHeight(20),
               ),
               Container(
-                margin: EdgeInsets.only(left: 15, right: 15),
+                margin: EdgeInsets.only(
+                    left: getProportionateScreenWidth(15),
+                    right: getProportionateScreenWidth(15)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    fruitHubImage(
+                    fruitHubImage2(
                       theImage: "menu4",
                       imageColor: Color(0XFF070648),
                     ),
                     Column(
                       children: [
-                        fruitHubImage(theImage: "smallbasket"),
+                        fruitHubImage2(theImage: "smallbasket"),
                         fruitHubText(
                           "My basket",
                           10,
@@ -39,12 +43,12 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 22,
+                height: getProportionateScreenHeight(22),
               ),
               Row(
                 children: [
                   SizedBox(
-                    width: 15,
+                    width: getProportionateScreenWidth(15),
                   ),
                   fruitHubText(
                       "Hello Tony, What fruit salad \ncombo do you want today?",
@@ -53,15 +57,19 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 5,
+                height: getProportionateScreenHeight(5),
               ),
               Row(
                 children: [
                   Container(
-                    height: 50,
-                    width: 288,
-                    margin: EdgeInsets.only(left: 20, right: 10, top: 20),
-                    padding: EdgeInsets.only(left: 15),
+                    height: getProportionateScreenHeight(50),
+                    width: getProportionateScreenWidth(288),
+                    margin: EdgeInsets.only(
+                        left: getProportionateScreenWidth(20),
+                        right: getProportionateScreenWidth(10),
+                        top: getProportionateScreenHeight(20)),
+                    padding:
+                        EdgeInsets.only(left: getProportionateScreenWidth(15)),
                     decoration: BoxDecoration(
                       color: Color(0XFFF3F4F9),
                       borderRadius: BorderRadius.all(
@@ -75,7 +83,7 @@ class HomeScreen extends StatelessWidget {
                           color: Color(0XFF86869E),
                         ),
                         SizedBox(
-                          width: 15,
+                          width: getProportionateScreenWidth(15),
                         ),
                         fruitHubText(
                             "Search for fruit salad combos", 14, Colors.black)
@@ -83,28 +91,30 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                   Container(
-                      margin: EdgeInsets.only(right: 10, top: 25),
-                      child: fruitHubImage(
+                      margin: EdgeInsets.only(
+                          right: getProportionateScreenWidth(10),
+                          top: getProportionateScreenHeight(25)),
+                      child: fruitHubImage2(
                           theImage: "line", imageColor: Color(0XFF070648))),
                 ],
               ),
               SizedBox(
-                height: 40,
+                height: getProportionateScreenHeight(40),
               ),
               Row(
                 children: [
-                  SizedBox(width: 24),
+                  SizedBox(width: getProportionateScreenHeight(24)),
                   Text(
                     "Recommended Combo",
                     style: TextStyle(
-                        fontSize: 24,
+                        fontSize: getProportionateScreenHeight(24),
                         letterSpacing: -1,
                         fontFamily: "Brandon Grotesque"),
                   ),
                 ],
               ),
               SizedBox(
-                height: 10,
+                height: getProportionateScreenHeight(10),
               ),
               Row(
                 children: [
@@ -118,39 +128,39 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 40,
+                height: getProportionateScreenHeight(40),
               ),
               Row(
                 children: [
                   SizedBox(
-                    width: 15,
+                    width: getProportionateScreenHeight(15),
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       fruitHubText("Hottest", 24, Color(0XFF27214D)),
-                      fruitHubImage(theImage: "singleline"),
+                      fruitHubImage2(theImage: "singleline"),
                     ],
                   ),
                   SizedBox(
-                    width: 25,
+                    width: getProportionateScreenWidth(25),
                   ),
                   fruitHubText("Popular", 16, Color(0xff938DB5)),
                   SizedBox(
-                    width: 35,
+                    width: getProportionateScreenWidth(35),
                   ),
                   fruitHubText("New combo", 16, Color(0xff938DB5)),
                   SizedBox(
-                    width: 35,
+                    width: getProportionateScreenWidth(35),
                   ),
                   fruitHubText("Top", 16, Color(0xff938DB5)),
                   SizedBox(
-                    width: 15,
+                    width: getProportionateScreenWidth(15),
                   ),
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: getProportionateScreenHeight(20),
               ),
               Row(
                 children: [
@@ -172,10 +182,13 @@ class HomeScreen extends StatelessWidget {
                   bottomFoodDisplay("images/bottomfood2.png", Color(0xffFEF0F0),
                       "Tropical fruit salad", "10,000", 43.0, 25),
                   Container(
-                    padding: EdgeInsets.only(top: 25),
-                    margin: EdgeInsets.only(top: 15, left: 10),
-                    width: 60,
-                    height: 130,
+                    padding:
+                        EdgeInsets.only(top: getProportionateScreenHeight(25)),
+                    margin: EdgeInsets.only(
+                        top: getProportionateScreenHeight(15),
+                        left: getProportionateScreenWidth(10)),
+                    width: getProportionateScreenWidth(60),
+                    height: getProportionateScreenHeight(130),
                     decoration: BoxDecoration(
                       color: Color(0XFFF1EFF6),
                       borderRadius: BorderRadius.only(
@@ -184,24 +197,20 @@ class HomeScreen extends StatelessWidget {
                     ),
                     child: Column(
                       children: [
-                        fruitHubImage(theImage: "bottomfood3"),
-                        SizedBox(height:5),
+                        fruitHubImage2(theImage: "bottomfood3"),
+                        SizedBox(height: getProportionateScreenHeight(5)),
                         fruitHubText("Mello", 16, Color(0xff27214D)),
-                        SizedBox(height:5),
-                        Row( 
+                        SizedBox(height: getProportionateScreenHeight(5)),
+                        Row(
                           children: [
-                            SizedBox(width: 10,),
+                            SizedBox(
+                              width: getProportionateScreenWidth(10),
+                            ),
                             Image.asset(
-                            "images/smallnaira.png",
-
-                          ),
-                          fruitHubText("10,0", 16, Color(0xffF08626))
-
-
+                              "images/smallnaira.png",
+                            ),
+                            fruitHubText("10,0", 16, Color(0xffF08626))
                           ],
-                          
-                        
-                         
                         ),
                       ],
                     ),

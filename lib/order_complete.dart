@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/add_to_basket.dart';
 import 'package:fruit_hub/reuseables.dart';
+import 'package:fruit_hub/size_config.dart';
 import 'package:fruit_hub/track_order.dart';
 
 class OrderComplete extends StatelessWidget {
@@ -8,6 +9,7 @@ class OrderComplete extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0xffE5E5E5),
@@ -19,21 +21,29 @@ class OrderComplete extends StatelessWidget {
               ),
               Center(
                 child: Container(
-                  margin: EdgeInsets.only(top: 95, bottom: 35),
-                  height: 164,
-                  width: 164,
+                  margin: EdgeInsets.only(
+                      top: getProportionateScreenHeight(95),
+                      bottom: getProportionateScreenHeight(35)),
+                  height: getProportionateScreenHeight(164),
+                  width: getProportionateScreenWidth(164),
                   decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xff4CD964), width: 2),
+                      border: Border.all(
+                          color: Color(0xff4CD964),
+                          width: getProportionateScreenWidth(2)),
                       color: Color(0xffE0FFE5),
                       borderRadius: BorderRadius.all(Radius.circular(100))),
                   child: Container(
-                      margin: EdgeInsets.all(30),
-                      height: 50,
-                      width: 50,
+                      margin: EdgeInsets.only(
+                          top: getProportionateScreenHeight(30),
+                          bottom: getProportionateScreenHeight(30),
+                          right: getProportionateScreenWidth(30),
+                          left: getProportionateScreenWidth(30)),
+                      height: getProportionateScreenHeight(30),
+                      width: getProportionateScreenWidth(30),
                       decoration: BoxDecoration(
                           color: Color(0xff4CD964),
                           borderRadius: BorderRadius.all(Radius.circular(100))),
-                      child: fruitHubImage(theImage: "check")),
+                      child: fruitHubImage2(theImage: "check")),
                 ),
               ),
               Center(
@@ -44,7 +54,7 @@ class OrderComplete extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: getProportionateScreenHeight(10),
               ),
               Center(
                   child: fruitHubText(
@@ -57,7 +67,7 @@ class OrderComplete extends StatelessWidget {
                     fruitHubText("is being attended to", 20, Color(0xff27214D)),
               ),
               SizedBox(
-                height: 20,
+                height: getProportionateScreenHeight(20),
               ),
               Center(
                 child: GestureDetector(
@@ -66,12 +76,12 @@ class OrderComplete extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => TrackOrder()));
                   },
                   child: Container(
-                    margin: EdgeInsets.only(top: 30, bottom: 20),
-                    height: 56,
-                    width: 133,
+                    margin: EdgeInsets.only(
+                        top: getProportionateScreenHeight(30),
+                        bottom: getProportionateScreenHeight(20)),
+                    height: getProportionateScreenHeight(56),
+                    width: getProportionateScreenWidth(133),
                     decoration: BoxDecoration(
-
-                        // border: Border.all(color: Color(0xff4CD964), width: 2),
                         color: Color(0xffFFA451),
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     child: Center(
@@ -86,11 +96,11 @@ class OrderComplete extends StatelessWidget {
                         MaterialPageRoute(builder: (context) => AddToBasket()));
                   },
                   child: Container(
-                    margin: EdgeInsets.only(top: 30, bottom: 20),
-                    height: 56,
-                    width: 181,
+                    margin: EdgeInsets.only(top: getProportionateScreenHeight(30), bottom: getProportionateScreenHeight(20)),
+                    height: getProportionateScreenHeight(56),
+                    width: getProportionateScreenWidth(181),
                     decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xffFFA451), width: 2),
+                        border: Border.all(color: Color(0xffFFA451), width: getProportionateScreenWidth(2)),
                         color: Color(0xffE5E5E5),
                         borderRadius: BorderRadius.all(Radius.circular(10))),
                     child: Center(

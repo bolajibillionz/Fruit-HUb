@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/welcome_screen.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -12,5 +11,3 @@ class MyApp extends StatelessWidget {
         home: WelcomeScreen(),
       );
 }
-
- 

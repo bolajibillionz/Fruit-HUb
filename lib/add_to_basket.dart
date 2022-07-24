@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/order_list.dart';
 import 'package:fruit_hub/reuseables.dart';
+import 'package:fruit_hub/size_config.dart';
 
 class AddToBasket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0XFFFFA451),
         body: SafeArea(
           child: Column(
-            // mainAxisSize: MainAxisSize.min,
             children: [
               GestureDetector(
                 onTap: () {
                   Navigator.pop(context);
                 },
                 child: Container(
-                  height: 32,
-                  width: 80,
-                  margin: EdgeInsets.only(left: 10, right: 270, top: 25),
-                  padding: EdgeInsets.only(left: 4, right: 4),
+                  height: getProportionateScreenHeight(32),
+                  width: getProportionateScreenWidth(80),
+                  margin: EdgeInsets.only(
+                      left: getProportionateScreenWidth(10),
+                      right: getProportionateScreenWidth(270),
+                      top: getProportionateScreenHeight(25)),
+                  padding: EdgeInsets.only(
+                      left: getProportionateScreenWidth(4),
+                      right: getProportionateScreenWidth(4)),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(20)),
                       color: Colors.white),
@@ -33,14 +39,14 @@ class AddToBasket extends StatelessWidget {
                 ),
               ),
               Container(
-                width: 327,
-                height: 176,
-                margin: EdgeInsets.only(bottom: 27),
-                child: fruitHubImage(theImage: "break55"),
+                width: getProportionateScreenWidth(327),
+                height: getProportionateScreenHeight(176),
+                margin:
+                    EdgeInsets.only(bottom: getProportionateScreenHeight(27)),
+                child: fruitHubImage2(theImage: "break55"),
               ),
               Container(
-                padding: EdgeInsets.only(top: 35),
-              
+                padding: EdgeInsets.only(top: getProportionateScreenHeight(35)),
                 decoration: BoxDecoration(
                   color: Color(0XFFE5E5E5),
                   borderRadius: BorderRadius.only(
@@ -49,31 +55,30 @@ class AddToBasket extends StatelessWidget {
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
-                  
                   children: [
                     Container(
-                        padding: EdgeInsets.only(left: 25),
+                        padding: EdgeInsets.only(
+                            left: getProportionateScreenWidth(25)),
                         child: fruitHubText(
                           "Quinoa Fruit Salad",
                           32,
                           Color(0xff27214D),
                         )),
-                   
                     SizedBox(
-                      height: 25,
+                      height: getProportionateScreenHeight(25),
                     ),
                     Row(
                       children: [
                         SizedBox(
-                          width: 20,
+                          width: getProportionateScreenWidth(20),
                         ),
                         Icon(
                           Icons.remove_circle_outline,
                           color: Color(0xff333333),
-                          size: 35,
+                          size: getProportionateScreenHeight(35),
                         ),
                         SizedBox(
-                          width: 25,
+                          width: getProportionateScreenWidth(25),
                         ),
                         fruitHubText("1", 24, Color(0xff27214D)),
                         SizedBox(
@@ -91,28 +96,27 @@ class AddToBasket extends StatelessWidget {
                               size: 28,
                             )),
                         SizedBox(
-                          width: 100,
+                          width: getProportionateScreenWidth(100),
                         ),
-                        fruitHubImage(
+                        fruitHubImage2(
                             theImage: "newnaira", imageColor: Colors.black),
-                        
                         fruitHubText("10,000", 24, Color(0xff27214D))
                       ],
                     ),
                     SizedBox(
-                      height: 50,
+                      height: getProportionateScreenHeight(50),
                     ),
                     Row(
                       children: [
                         SizedBox(
-                          width: 18,
+                          width: getProportionateScreenWidth(18),
                         ),
                         Column(
                           children: [
                             fruitHubText(
                                 "One Pack Contains:", 20, Color(0xff27214D)),
                             Container(
-                              child: fruitHubImage(
+                              child: fruitHubImage2(
                                 theImage: "longline",
                                 imageColor: Color(0xffFFA451),
                               ),
@@ -122,12 +126,12 @@ class AddToBasket extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 25,
+                      height: getProportionateScreenHeight(25),
                     ),
                     Row(
                       children: [
                         SizedBox(
-                          width: 20,
+                          width: getProportionateScreenWidth(20),
                         ),
                         fruitHubText(
                             "Red Quinoa, Lime, Honey, Blueberries, Strawberries, \nMango, Fresh mint.",
@@ -136,12 +140,12 @@ class AddToBasket extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 35,
+                      height: getProportionateScreenHeight(35),
                     ),
                     Row(
                       children: [
                         SizedBox(
-                          width: 20,
+                          width: getProportionateScreenWidth(20),
                         ),
                         fruitHubText(
                             "If you are looking for a new fruit salad to eat today, \nquinoa is the perfect brunch for you. make",
@@ -150,23 +154,24 @@ class AddToBasket extends StatelessWidget {
                       ],
                     ),
                     SizedBox(
-                      height: 40,
+                      height: getProportionateScreenHeight(40),
                     ),
                     Row(
                       children: [
                         SizedBox(
-                          width: 20,
+                          width: getProportionateScreenWidth(20),
                         ),
                         Container(
-                          padding: EdgeInsets.only(bottom: 15),
+                          padding: EdgeInsets.only(
+                              bottom: getProportionateScreenHeight(15)),
                           child: Icon(
                             Icons.favorite_border,
                             color: Color(0XFFFFA451),
-                            size: 28,
+                            size: getProportionateScreenWidth(28),
                           ),
                         ),
                         SizedBox(
-                          width: 50,
+                          width: getProportionateScreenWidth(50),
                         ),
                         GestureDetector(
                           onTap: () {
@@ -176,9 +181,10 @@ class AddToBasket extends StatelessWidget {
                                     builder: (context) => OrderList()));
                           },
                           child: Container(
-                            height: 56,
-                            width: 230,
-                            margin: EdgeInsets.only(bottom: 12),
+                            height: getProportionateScreenHeight(56),
+                            width: getProportionateScreenWidth(230),
+                            margin: EdgeInsets.only(
+                                bottom: getProportionateScreenHeight(12)),
                             decoration: BoxDecoration(
                                 color: Color(0XFFFFA451),
                                 borderRadius:
@@ -191,6 +197,7 @@ class AddToBasket extends StatelessWidget {
                         Spacer(),
                       ],
                     ),
+                    SizedBox(height: getProportionateScreenHeight(38),)
                   ],
                 ),
               ),

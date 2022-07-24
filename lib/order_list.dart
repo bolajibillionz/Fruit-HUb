@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/details_Bottom_Sheet.dart';
 import 'package:fruit_hub/reuseables.dart';
+import 'package:fruit_hub/size_config.dart';
 
 class OrderList extends StatelessWidget {
   const OrderList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return MaterialApp(
       home: Scaffold(
         backgroundColor: Color(0XFFFFA451),
@@ -20,10 +22,13 @@ class OrderList extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     child: Container(
-                      height: 32,
-                      width: 85,
-                      margin: EdgeInsets.only(left: 20, right: 35, top: 47),
-                      padding: EdgeInsets.only(left: 4, right: 4),
+                      height: getProportionateScreenHeight(32),
+                      width: getProportionateScreenWidth(85),
+                      margin: EdgeInsets.only(
+                          left: getProportionateScreenWidth(20),
+                          right: getProportionateScreenWidth(35),
+                          top: getProportionateScreenHeight(47)),
+                      padding: EdgeInsets.only(left: getProportionateScreenWidth(4), right: getProportionateScreenWidth(4)),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(20)),
                           color: Colors.white),
@@ -35,7 +40,7 @@ class OrderList extends StatelessWidget {
                           Text(
                             "Go back  ",
                             style: TextStyle(
-                                fontSize: 16,
+                                fontSize: getProportionateScreenWidth(16),
                                 color: Color(0xff27214D),
                                 letterSpacing: -1,
                                 fontFamily: "Brandon Grotesque"),
@@ -45,11 +50,11 @@ class OrderList extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(left: 0, right: 35, top: 47),
+                    margin: EdgeInsets.only(left: 0, right: getProportionateScreenWidth(35), top: getProportionateScreenHeight(47)),
                     child: Text(
                       "My Basket",
                       style: TextStyle(
-                          fontSize: 24,
+                          fontSize: getProportionateScreenWidth(24),
                           color: Colors.white,
                           letterSpacing: -1,
                           fontFamily: "Brandon Grotesque"),
@@ -58,14 +63,14 @@ class OrderList extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: 20,
+                height: getProportionateScreenHeight(20),
               ),
               Container(
-                margin: EdgeInsets.only(top: 30),
-               
+                margin: EdgeInsets.only(top: getProportionateScreenHeight(30)),
+
                 // height: 615,
                 padding: EdgeInsets.only(
-                  top: 10,
+                  top: getProportionateScreenHeight(10),
                 ),
                 decoration: BoxDecoration(
                   color: Color(0XFFE5E5E5),
@@ -79,12 +84,12 @@ class OrderList extends StatelessWidget {
                     foodlist("images/salad3.png", Color(0XFFFEF0F0),
                         "Tropical fruit salad", 2, " 20,000"),
                     SizedBox(
-                      height: 210,
+                      height: getProportionateScreenHeight(210),
                     ),
                     Row(
                       children: [
                         SizedBox(
-                          width: 20,
+                          width: getProportionateScreenWidth(20),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,22 +98,22 @@ class OrderList extends StatelessWidget {
                               "Total",
                               textAlign: TextAlign.left,
                               style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: getProportionateScreenWidth(16),
                                   color: Colors.black,
                                   letterSpacing: -1,
                                   fontFamily: "Brandon Grotesque"),
                             ),
                             SizedBox(
-                              height: 3,
+                              height: getProportionateScreenHeight(3),
                             ),
                             Row(
                               children: [
-                                fruitHubImage(
+                                fruitHubImage2(
                                     theImage: "big_naira",
                                     imageColor: Color(0XFF27214D)),
                                 Text("60,000",
                                     style: TextStyle(
-                                        fontSize: 24,
+                                        fontSize: getProportionateScreenWidth(24),
                                         color: Color(0XFF27214D),
                                         letterSpacing: -1,
                                         fontFamily: "Brandon Grotesque")),
@@ -136,17 +141,17 @@ class OrderList extends StatelessWidget {
                             );
                           },
                           child: Container(
-                            margin: EdgeInsets.only(left: 25, bottom: 10),
+                            margin: EdgeInsets.only(left: getProportionateScreenWidth(25), bottom: getProportionateScreenHeight(10)),
                             padding: EdgeInsets.all(15),
-                            width: 200,
-                            height: 60,
+                            width: getProportionateScreenWidth(200),
+                            height: getProportionateScreenHeight(60),
                             decoration: BoxDecoration(
                                 color: Color(0XFFFFA451),
                                 borderRadius: BorderRadius.circular(10)),
                             child: Center(
                               child: Text("Checkout",
                                   style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: getProportionateScreenWidth(16),
                                       color: Colors.white,
                                       letterSpacing: -1,
                                       fontFamily: "Brandon Grotesque")),
@@ -155,8 +160,8 @@ class OrderList extends StatelessWidget {
                         )
                       ],
                     ),
-                    // Spacer()
-                    // SizedBox(height: 10,),
+                    
+                    SizedBox(height: getProportionateScreenHeight(37),),
                   ],
                 ),
               ),

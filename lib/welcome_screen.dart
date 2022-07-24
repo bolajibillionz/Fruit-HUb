@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub/authentication.dart';
 import 'package:fruit_hub/reuseables.dart';
+import 'package:fruit_hub/size_config.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig.init(context);
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -20,19 +22,25 @@ class WelcomeScreen extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Container(
-                  width: 200,
-                  margin: EdgeInsets.only(bottom: 38),
-                  padding: EdgeInsets.only(bottom: 23, top: 10),
+                  width: getProportionateScreenWidth(200),
+                  margin:
+                      EdgeInsets.only(bottom: getProportionateScreenHeight(38)),
+                  padding: EdgeInsets.only(
+                      bottom: getProportionateScreenHeight(23),
+                      top: getProportionateScreenHeight(10)),
                   color: Color(0xFFFFA451),
-                  child: fruitHubImage(theImage: "basket44"),
+                  child: fruitHubImage2(theImage: "basket44"),
                 ),
               ),
               Expanded(
                 flex: 1,
                 child: Container(
-                  margin: EdgeInsets.only(top: 5),
-                  padding:
-                      EdgeInsets.only(left: 25, right: 70, bottom: 8, top: 13),
+                  margin: EdgeInsets.only(top: getProportionateScreenHeight(5)),
+                  padding: EdgeInsets.only(
+                      left: getProportionateScreenWidth(25),
+                      right: getProportionateScreenWidth(70),
+                      bottom: getProportionateScreenHeight(8),
+                      top: getProportionateScreenHeight(13)),
                   color: Colors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +51,7 @@ class WelcomeScreen extends StatelessWidget {
                               "Get The Freshest Fruit Salad Combo",
                               20,
                               Color(0XFF27214D))),
-                      SizedBox(height: 8),
+                      SizedBox(height: getProportionateScreenHeight(8)),
                       Container(
                           child: fruitHubText(
                               "We deliver the best and freshest fruit salad in town. Order for a combo today!!!",
@@ -63,13 +71,13 @@ class WelcomeScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     SizedBox(
-                      width: 15,
+                      width: getProportionateScreenWidth(15),
                     ),
                     Container(
-                      height: 55,
-                      width: 327,
+                      height: getProportionateScreenHeight(55),
+                      width: getProportionateScreenWidth(327),
                       margin: EdgeInsets.only(
-                        top: 25,
+                        top: getProportionateScreenHeight(25),
                       ),
                       decoration: BoxDecoration(
                         color: Color(0XFFFFA451),
@@ -83,7 +91,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 80,
+                height: getProportionateScreenHeight(80),
               ),
             ],
           ),
